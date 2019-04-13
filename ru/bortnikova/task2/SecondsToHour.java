@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class SecondsToHour {
     public static void main(String[] args) {
-        int seconds = 72885, minutes = 0, hours = 0;
+        int seconds, minutes = 0, hours = 0;
 
         Scanner in = new Scanner(System.in);
         System.out.println("Введите количество секунд ");
