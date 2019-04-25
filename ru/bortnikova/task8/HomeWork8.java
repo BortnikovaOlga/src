@@ -1,6 +1,5 @@
 package ru.bortnikova.task8;
 
-import java.util.Date;
 
 public class HomeWork8 {
     public static void main(String[] args) {
@@ -13,21 +12,31 @@ public class HomeWork8 {
         System.out.println(Calculator.sub(3.7, 2));
         System.out.println(Calculator.percent(3.8, 20));
 
-        System.out.println("2) Тестируем счетчик созданных объектов класса CalcClass");
-
-        CalcClass c1 = new CalcClass();
-        CalcClass c2 = new CalcClass();
-        CalcClass c3 = new CalcClass();
-
-        System.out.println("количество объектов "+CalcClass.getCounterClass());
 
 
-        System.out.println("3) Тестируем метод конвертор объекта класса Dogovor в объект класса Act");
+        System.out.println("1.2) Тестируем методы из класса Calculator для дробных чисел");
 
-        Dogovor dogovor=new Dogovor(1, new Date(), new String[]{"товар1","товар2","товар3"});
+        FractNumber a=new FractNumber(75,62); // а -дробное 75/62
+        FractNumber b=new FractNumber(31,25); // b -дробное 31/25
 
-        Act act=Dogovor.convertToAct(dogovor);
-        Act.printAct(act);
+        FractNumber c=Calculator.mult(a,b);
+        System.out.println(a.toStr()+"*"+b.toStr()+"="+c.toStr());
+
+        a.setFract(27,8);
+        b.setFract (9,11);
+
+        c=Calculator.div(a,b);
+        System.out.println(a.toStr()+":"+b.toStr()+"="+c.toStr());
+
+        a.setFract(1,3);
+        b.setFract (1,2);
+
+        c=Calculator.sub(a,b);
+        System.out.println(a.toStr()+"-"+b.toStr()+"="+c.toStr());
+
+        c=Calculator.add(a,b);
+        System.out.println(a.toStr()+"+"+b.toStr()+"="+c.toStr());
+
 
     }
 }
