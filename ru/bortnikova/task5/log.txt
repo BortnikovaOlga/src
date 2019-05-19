@@ -1,0 +1,23 @@
+мая 19, 2019 9:29:15 AM ru.bortnikova.task5.Console pressKey
+WARNING: Ошибка меню
+java.lang.ArrayIndexOutOfBoundsException: 22
+	at ru.bortnikova.task5.Console.pressKey(Console.java:25)
+	at ru.bortnikova.task5.VendingMachine.start(VendingMachine.java:20)
+	at ru.bortnikova.task5.App.main(App.java:11)
+
+мая 19, 2019 9:29:26 AM ru.bortnikova.task5.Acceptor getMoney
+SEVERE: замялась купюра, попробуйте снова
+ru.bortnikova.task5.AcceptorException: замялась купюра, попробуйте снова
+	at ru.bortnikova.task5.Acceptor.takeMoney(Acceptor.java:45)
+	at ru.bortnikova.task5.Acceptor.getMoney(Acceptor.java:18)
+	at ru.bortnikova.task5.VendingMachine.start(VendingMachine.java:22)
+	at ru.bortnikova.task5.App.main(App.java:11)
+
+мая 19, 2019 9:29:35 AM ru.bortnikova.task5.Acceptor getMoney
+INFO: Отмена ! возврат внесенных денег 
+ru.bortnikova.task5.CancellException: Отмена ! 
+	at ru.bortnikova.task5.Acceptor.takeMoney(Acceptor.java:47)
+	at ru.bortnikova.task5.Acceptor.getMoney(Acceptor.java:18)
+	at ru.bortnikova.task5.VendingMachine.start(VendingMachine.java:22)
+	at ru.bortnikova.task5.App.main(App.java:11)
+
