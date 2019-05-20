@@ -10,4 +10,11 @@ public class Baby {
             System.out.printf("Ням-Ням, вкусно !");
     }
 
+    public static void say(String message){
+        System.out.println(message);
+    }
+
+    public static void say(BabyException e){
+        System.out.printf(e.getMessage());
+    }
 }

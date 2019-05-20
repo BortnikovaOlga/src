@@ -6,18 +6,18 @@ public class MamaApp {
 
 
         for (Food food : Food.values()) {
-            MamaApp.getEat(food);
+            MamaApp.feedBaby(food);
 
         }
     }
 
-    static void getEat(Food food) {
+    static void feedBaby(Food food) {
         try {
             Baby.eat(food);
         } catch (BabyException e) {
-            System.out.printf(e.getMessage());
+            Baby.say(e);
         } finally {
-            System.out.println("спасибо !");
+            Baby.say("спасибо !");
         }
     }
 }
