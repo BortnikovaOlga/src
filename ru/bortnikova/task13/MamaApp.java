@@ -15,9 +15,7 @@ public class MamaApp {
         try {
             Baby.eat(food);
         } catch (BabyException e) {
-            Baby.say(e);
-        } finally {
-            Baby.say("спасибо !");
+            System.out.println(e.getMessage());
         }
     }
 }
