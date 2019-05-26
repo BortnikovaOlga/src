@@ -1,8 +1,6 @@
 package ru.bortnikova.task15;
 
 import org.apache.log4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.slf4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +10,8 @@ import java.nio.file.Path;
 
 public class myFiles {
 
+    // !!! использую библиотеку из maven log4j:log4j:1.2.17
     private static final Logger logger = Logger.getLogger(myFiles.class);
-    //private static final Logger logger = LoggerFactory.getLogger(myFiles.class);
 
     public static void main(String[] args) {
         String workDir = "./src/ru/bortnikova/task15";
@@ -23,7 +21,7 @@ public class myFiles {
         printDir(dir, 0);
         // ===========================================================
 
-        
+
         // работа с объектами File
         File myFile = new File(workDir + "/newfile1.txt");
         Path myPath;
