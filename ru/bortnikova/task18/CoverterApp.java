@@ -35,7 +35,7 @@ public class CoverterApp {
                 "Значит - это необходимо,\n" +
                 "чтобы каждый вечер\n" +
                 "над крышами\n" +
-                "загоралась хоть одна звезда?!\n(В.В. Маяковский)";
+                "загоралась хоть одна звезда?!\n(В.В. Маяковский)\n";
 
         // далее записываю этот текст в файл
         try (FileWriter fw = new FileWriter("fileUTF8.txt")) {
@@ -45,21 +45,10 @@ public class CoverterApp {
             System.out.println(e.getStackTrace());
         }
 
-        // далее читаю символы из файла, изменяю кодировку и делаю вывод в другой файл
+        // далее конвертирую файлы из UTF8 в Windows1251 и KOI8
 
-        try (Reader reader = new FileReader("fileUTF8.txt");
-             FileOutputStream os = new FileOutputStream("fileWin1251.txt")) {
-
-            char[] cbuff = new char[200];
-            int numChars; // сколько прочитано на самом деле
-            while ((numChars = reader.read(cbuff)) > 0) {
-                String str = new String(cbuff, 0, numChars);
-                System.out.printf(str);
-                os.write(str.getBytes("Windows-1251"));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Converter.convert("fileUTF8.txt", "UTF-8", "fileWin1251.txt", "Windows-1251");
+        Converter.convert("fileWin1251.txt", "Windows-1251", "fileKOI8.txt", "KOI8-R");
 
     }
 }
