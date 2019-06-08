@@ -1,13 +1,22 @@
 package ru.bortnikova.task22;
 
+import java.util.Arrays;
+
 public class ComporatorApp {
     public static void main(String[] args) {
-        Person p1 = new Person("Иван Иванович", 25);
-        Person p2 = new Person("Иван Иванович", 50);
-        Person p3 = new Person("Сергей Сергеевич", 25);
-        System.out.println("Сравним " + p1.toString() + " и " + p2.toString());
-        System.out.println("Результат " + p1.compareTo(p2));
-        System.out.println("Сравним " + p3.toString() + " и " + p2.toString());
-        System.out.println("Результат " + p3.compareTo(p2));
+        Person persons[] = new Person[5];
+
+        persons[0] = new Person("Сергей Сергеевич", 25);
+        persons[1] = new Person("Иван Иванович", 50);
+        persons[2] = new Person("Иван Иванович", 25);
+        persons[3] = new Person("Антон Петрович", 29);
+        persons[4] = new Person("Антон Борисович", 19);
+
+        Arrays.sort(persons, new SortPersons());
+
+        for (Person p : persons) {
+            System.out.println(p.toString());
+        }
+
     }
 }
