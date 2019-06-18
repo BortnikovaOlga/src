@@ -20,17 +20,18 @@ public class CheckApp {
             while (scanner.hasNext()) {
                 String nameProd = readNameProd(scanner);
                 boolean weight = !scanner.hasNextInt();
-                float count = scanner.nextFloat();
-                float price = scanner.nextFloat();
-                BigDecimal cost = new BigDecimal(count * price);
+                BigDecimal count = new BigDecimal(scanner.nextFloat());
+                BigDecimal price = new BigDecimal(scanner.nextFloat());
+
+                BigDecimal cost = count.multiply(price);
                 cost = cost.setScale(2, BigDecimal.ROUND_HALF_UP);
                 total = total.add(cost);
                 if (weight){
                     prn.printf("%-20s %10.2f %10.3f %10.2f\n", nameProd, price, count, cost);
                     System.out.printf("%-20s %10.2f %10.3f %10.2f\n", nameProd, price, count, cost);}
                 else{
-                    prn.printf("%-20s %10.2f %10d %10.2f\n", nameProd, price, (int) count, cost);
-                    System.out.printf("%-20s %10.2f %10d %10.2f\n", nameProd, price, (int) count, cost);}
+                    prn.printf("%-20s %10.2f %10d %10.2f\n", nameProd, price, count.intValue(), cost);
+                    System.out.printf("%-20s %10.2f %10d %10.2f\n", nameProd, price, count.intValue(), cost);}
             }
             prn.printf("\nИтого %47.2f", total);
             System.out.printf("\nИтого %47.2f", total);
