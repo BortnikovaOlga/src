@@ -3,7 +3,7 @@ package ru.bortnikova.task23;
 import java.util.*;
 
 public class BasketMap implements Basket {
-    public static Map<String, Integer>
+    public Map<String, Integer>
             mapProd;
 
     BasketMap() {
