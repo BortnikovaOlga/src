@@ -21,7 +21,7 @@ public class Product  {
     }
 
     public boolean equals (Product product) {
-        return (name.compareTo(product.getName())==0);
+        return (name.equals(product.getName()));
     }
 
     public String toString(){
