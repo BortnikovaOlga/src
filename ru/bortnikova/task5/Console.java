@@ -1,9 +1,11 @@
 package ru.bortnikova.task5;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Console {
-
+    private static final Logger logger = Logger.getLogger(Console.class.getName());
 
     public static void showMenu(Drink[] allDrinks) {
         int i = 0;
@@ -19,12 +21,16 @@ public class Console {
         int key;
         while (true) {
             key = in.nextInt();
-            if (key < 0 | key >= allDrinks.length) {
-                System.out.println("Такого напитка нет");
-                continue;
-            } else {
+            try {
+                Drink drink = allDrinks[key];
+                System.out.println("Ваш выбор : " + drink.getNamed());
                 return key;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                logger.log(Level.WARNING, "Ошибка меню", e);
+                System.out.println("Неверный код напитка, повторите выбор");
             }
+
         }
     }
 }
+

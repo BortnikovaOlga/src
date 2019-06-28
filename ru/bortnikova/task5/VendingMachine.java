@@ -25,11 +25,8 @@ public class VendingMachine {
 
     }
 
-
     // выдает напиток
     public void getDrink() {
-
         System.out.println("Пожалуйста,ваш " + this.allDrinks[pressKey].getNamed() + " готов");
-
     }
 }

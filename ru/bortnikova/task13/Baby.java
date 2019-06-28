@@ -5,16 +5,13 @@ public class Baby {
     public static void eat(Food food) throws BabyException {
         System.out.printf("малыш пробует  " + food.getnamed() + " : ");
         if (Math.random() < 0.4)
-            throw new BabyException("Кака ! не буду !");
+            throw new BabyException("Кака ! не буду ! Спасибо !");
         else
-            System.out.printf("Ням-Ням, вкусно !");
+            say("Ням-Ням, вкусно ! Спасибо !");
     }
 
     public static void say(String message){
         System.out.println(message);
     }
 
-    public static void say(BabyException e){
-        System.out.printf(e.getMessage());
-    }
 }
