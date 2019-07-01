@@ -21,7 +21,7 @@ public class PersonBookApp {
 
         // удалить все дублирующиеся записи, метод из ДЗ
         // pBook.removeTheDuplicates();
-        // удалить все дублирующиеся записи, то что хотела сделать в своем методе
+        // удалить все дублирующиеся записи, в другом методе
         pBook.removeDuplicates();
         System.out.println(pBook.toString());
     }

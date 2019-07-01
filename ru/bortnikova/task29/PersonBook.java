@@ -44,18 +44,15 @@ public class PersonBook {
     public void removeDuplicates() {
         Set<Person> personsForDel = new HashSet<>();
         Set<Person> allPersons = new HashSet<>();
-        Set<String> keysForDel = new HashSet<>();
+
         for (Map.Entry<String, Person> pair : book.entrySet()) {
             Person person = pair.getValue();
-            if (!allPersons.add(person)) {
-                keysForDel.add(pair.getKey());
+            if (!allPersons.add(person))
                 personsForDel.add(person);
-            }
         }
-        book.keySet().removeAll(keysForDel);
-        // а теперь удалить те записи, которые не попали в keysForDel,
-        // но значения Person лежат в personForDel
         book.values().removeAll(personsForDel);
+        // ... и тут я выяснила, что removeAll - удаляет не просто по одному элементу
+        // для заданного сета, какой первый попадется, а действительно All )))
     }
 
 }
