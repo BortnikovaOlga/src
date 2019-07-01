@@ -24,8 +24,13 @@ public class LocCity {
         return latt_long;
     }
 
+    @Override
     public String toString() {
-        return title + " " + location_type + " " + latt_long;
+        return "LocCity{" +
+                "title='" + title + '\'' +
+                ", location_type='" + location_type + '\'' +
+                ", woeid=" + woeid +
+                ", latt_long='" + latt_long + '\'' +
+                '}';
     }
-
 }

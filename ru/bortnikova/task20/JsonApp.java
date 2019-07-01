@@ -10,35 +10,21 @@ import java.net.URL;
 
 public class JsonApp {
     public static void main(String[] args) throws MalformedURLException {
-        LocCity lcity;
+        LocCity[] lcity;
         Weather weather;
-        byte[] buff = new byte[2000];
 
-        URL url = URI.create("https://www.metaweather.com/api/location/search/?query=London").toURL();
-        try (InputStream inputStream = url.openStream();
-             BufferedInputStream bis = new BufferedInputStream(inputStream)) {
-
-            int len = bis.read(buff);
-
-            String str = new String(buff);
-            str = str.substring(1, len - 1);
-            // Здесь обрезаю скобки [ и ] ,
-            // которые приходят первым и последним символом,
-            // не поняла почему это происходит, в формате JSON так не должно быть
-            System.out.println(str);
+        URL url = URI.create("https://www.metaweather.com/api/location/search/?query=Mos").toURL();
+        try (InputStream inputStream = url.openStream()) {
 
             ObjectMapper objectMapper = new ObjectMapper();
-            lcity = objectMapper.readValue(str, LocCity.class);
-            System.out.println(lcity.toString());
+            lcity = objectMapper.readValue(inputStream, LocCity[].class);
+            System.out.println(lcity[0].toString());
 
-            URL url2 = URI.create("https://www.metaweather.com/api/location/" + lcity.getWoeid()).toURL();
+            URL url2 = URI.create("https://www.metaweather.com/api/location/" + lcity[0].getWoeid()).toURL();
             InputStream inputStream2 = url2.openStream();
-            BufferedInputStream bis2 = new BufferedInputStream(inputStream2);
-            bis2.read(buff);
-            String str2 = new String(buff);
-            System.out.printf(str2);
-            // что-то пошло не так в позиции 979 ((( ???
-            weather = objectMapper.readValue(str2,Weather.class);
+            System.out.println(url2.toString());
+
+            weather = objectMapper.readValue(inputStream2,Weather.class);
             System.out.printf(weather.toString());
 
         } catch (IOException ex) {
