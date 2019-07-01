@@ -19,8 +19,10 @@ public class PersonBookApp {
 
         System.out.println(pBook.toString());
 
-        // удалить все дублирующиеся записи
-        pBook.removeTheDuplicates();
+        // удалить все дублирующиеся записи, метод из ДЗ
+        // pBook.removeTheDuplicates();
+        // удалить все дублирующиеся записи, то что хотела сделать в своем методе
+        pBook.removeDuplicates();
         System.out.println(pBook.toString());
     }
 }
