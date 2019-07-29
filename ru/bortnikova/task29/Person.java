@@ -54,6 +54,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "{"+name + "," + age +"," + sex +"}";
+        return "{" + name + "," + age + "," + sex + "}";
     }
 }
